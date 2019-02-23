@@ -55,5 +55,13 @@ module.exports = function(app) {
         tempOrder.order.length = 0;
         res.json(tempOrder);
     });
+
+    app.get('/api/department', function(req, res) {
+        db.department.findAll().then(function(deptList){
+            res.json(deptList);
+        }).catch(function(error) {
+            res.json({error: error});
+        });
+    });
     
 };
