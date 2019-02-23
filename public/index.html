@@ -7,21 +7,94 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/style.css">
     <title>BAMazon</title>
 </head>
 
 <body>
     <header>
-        <div class='jumbotron'>
-            <img src="./assets/Bam.png" alt="">
+        <div class='mx-auto'>
+            <img src="./assets/Bam.png" class='img-fluid mx-auto'>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".cartModal">Checkout</button>
         </div>
     </header>
-    <main claiss="container">
+    <main class="container">
+        <div class="row">
+            <div class="col">
+                <div id="alerts">
+
+                </div>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Qty</th>
+                            <th scope="col">Item</th>
+                            <th scope="col">Available</th>
+                            <th scope="col">Price</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody id="itemList">
+
+                    </tbody>
+                </table>
+                <div class="modal fade cartModal" tabindex="-1" role="dialog">
+                    <div class="modal modal-lg modal-dialog modal-dialog-scrollable">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Shopping Cart</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body" id="cartBody">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Item</th>
+                                            <th scope="col">Quantity in Cart</th>
+                                            <th scope="col">Unit Price</th>
+                                            <th scope="col"></th>
+                                            <th scope="col">Total Price</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="cartList">
+                                    </tbody>
+                                </table>
+                                <div id='grandTotal'>
+                                    </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary" id="purchase"
+                                    data-toggle="modal" data-target=".finalModal" data-dismiss="modal">Purchase</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade finalModal" tabindex="-1" role="dialog"data-keyboard="false" data-backdrop="static">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header" id="finalTitle">
+                                <button type="button"  id='ok' class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body" id="finalBody">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" id="OK" data-dismiss="modal">OK</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </main>
 
-
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
         crossorigin="anonymous"></script>
