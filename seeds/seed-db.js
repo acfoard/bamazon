@@ -198,13 +198,13 @@ const departments = [
 db.sequelize.sync({
     force: true
 }).then(function(){
-    db.product.bulkCreate(items)
+    db.department.bulkCreate(departments)
         .then(function(rows){
             console.log(`\n\nINSERTED into database\n\n`);
         }).catch(function(err){
             console.log("\n\nError:", err);
         });
-    db.department.bulkCreate(departments)
+    db.product.bulkCreate(items)
     .then(function(rows){
         console.log(`\n\nINSERTED into database\n\n`);
         db.sequelize.close();
